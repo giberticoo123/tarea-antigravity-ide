@@ -489,6 +489,452 @@ code10
 
 </body>
 </html>
+code11
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Cuadrícula CSS Grid</title>
+  <style>
+    /* 1. Habilitar el modelo de cuadrícula en el contenedor principal */
+    .contenedor-grid {
+      display: grid;
+      
+      /* 2. Configurar las columnas usando la unidad fraccional (fr) */
+      /* Ejemplo: 3 columnas de igual tamaño (1fr cada una) */
+      grid-template-columns: 1fr 1fr 1fr;
+      
+      /* 3. Establecer una separación uniforme entre los elementos */
+      gap: 20px;
+
+      /* Estilos decorativos para el contenedor */
+      max-w: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f4f4f9;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Estilos para los elementos de la cuadrícula */
+    .elemento {
+      background-color: #3498db;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor principal con display: grid -->
+  <div class="contenedor-grid">
+    <div class="elemento">Elemento 1</div>
+    <div class="elemento">Elemento 2</div>
+    <div class="elemento">Elemento 3</div>
+    <div class="elemento">Elemento 4</div>
+    <div class="elemento">Elemento 5</div>
+    <div class="elemento">Elemento 6</div>
+  </div>
+
+</body>
+</html>
+code12
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ejercicio 12</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+    legend {
+      font-weight: bold;
+      padding: 0 8px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    input, textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0052a3;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="/enviar" method="POST">
+    
+    <fieldset>
+      <legend>Información de Contacto</legend>
+      
+      <div class="form-group">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferencias del Servicio</legend>
+      
+      <div class="form-group">
+        <label for="pais">País de residencia (selecciona o escribe):</label>
+        <input type="text" id="pais" name="pais" list="lista-paises" placeholder="Empieza a escribir...">
+        
+        <datalist id="lista-paises">
+          <option value="Argentina">
+          <option value="Chile">
+          <option value="Colombia">
+          <option value="España">
+          <option value="México">
+          <option value="Perú">
+        </datalist>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Detalles Adicionales</legend>
+      
+      <div class="form-group">
+        <label for="comentarios">Comentarios o requerimientos especiales:</label>
+        <textarea id="comentarios" name="comentarios" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
+      </div>
+    </fieldset>
+
+    <button type="submit">Enviar Formulario</button>
+  </form>
+
+</body>
+</html>
+code13
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cabecera Persistente y Control de Visibilidad</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding-top: 70px; /* Evita que la cabecera fija solape el contenido inicial */
+      line-height: 1.6;
+    }
+
+    /* 1 y 2. Cabecera fija en la parte superior con nivel de capa z-index */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #1e293b;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 1000; /* Prioridad de superposición sobre el resto de elementos */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Estilos del contenido principal */
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .box {
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+      color: white;
+    }
+
+    .box-1 {
+      background-color: #2563eb;
+    }
+
+    /* 3. Contenedor oculto en pantalla pero reservando su espacio en el DOM */
+    .box-hidden {
+      background-color: #dc2626;
+      visibility: hidden; /* Mantiene la maquetación sin mostrar el contenido */
+    }
+
+    .box-3 {
+      background-color: #16a34a;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Sitio Web</h1>
+    <nav>Cabecera Persistente</nav>
+  </header>
+
+  <main>
+    <h2>Demostración de Posicionamiento y Visibilidad</h2>
+    
+    <div class="box box-1">
+      <p>Caja 1: Elemento visible norma en el flujo del documento.</p>
+    </div>
+
+    <div class="box box-hidden">
+      <p>Caja 2: Este texto no se ve, pero el espacio rojo reservado sigue estando presente entre la Caja 1 y la Caja 3.</p>
+    </div>
+
+    <div class="box box-3">
+      <p>Caja 3: Permanece en su posición sin desplazarse hacia arriba.</p>
+    </div>
+
+    <div style="height: 1000px; background: #f1f5f9; padding: 15px; margin-top: 20px;">
+      <p>Haz scroll hacia abajo para verificar que la cabecera se mantiene siempre arriba gracias a <code>position: fixed</code> y <code>z-index: 1000</code>.</p>
+    </div>
+  </main>
+
+</body>
+</html>
+code14
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estructura Principal Web</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #f4f4f9;
+    }
+
+    /* Contenedor Flexbox para alinear el área principal y el aside horizontalmente */
+    .layout-container {
+      display: flex;
+      flex: 1; /* Ocupa el espacio vertical disponible */
+      max-width: 1200px;
+      width: 100%;
+      margin: 20px auto;
+      gap: 20px;
+      padding: 0 15px;
+    }
+
+    /* Asignación de proporciones de espacio con la propiedad abreviada 'flex' */
+    main {
+      flex: 3; /* Ocupa 3 partes del espacio (75%) */
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    aside {
+      flex: 1; /* Ocupa 1 parte del espacio (25%) */
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+
+    article {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+
+    footer {
+      background-color: #1e293b;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout-container">
+    
+    <main>
+      <article>
+        <h2>Artículo Destacado: Maquetación Semántica</h2>
+        <p>Uso de las etiquetas estructurales de HTML5 para dar un significado preciso a las diferentes áreas de la interfaz.</p>
+      </article>
+
+      <article>
+        <h2>Segundo Artículo: CSS Flexbox</h2>
+        <p>Distribución de elementos en una sola dimensión para crear diseños limpios y adaptables.</p>
+      </article>
+    </main>
+
+    <aside>
+      <h3>Barra Lateral</h3>
+      <p>Contenido secundario, enlaces de interés o publicidad alineados horizontalmente al contenido principal.</p>
+    </aside>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 - Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
+code15
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjeta de Contenido Interactivo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Estructura de la tarjeta */
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      
+      /* Requerimiento: Limitar la anchura de la tarjeta */
+      max-width: 350px;
+      width: 100%;
+
+      /* Requerimiento: Cambiar el puntero del ratón a una mano */
+      cursor: pointer;
+    }
+
+    /* Efecto interactivo al pasar el cursor */
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Contenedor de la imagen */
+    .card-image-container {
+      width: 100%;
+      height: 200px;
+    }
+
+    /* Requerimiento: Ajuste de imagen sin deformación */
+    .card-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cubre todo el espacio sin perder la relación de aspecto */
+      display: block;
+    }
+
+    /* Cuerpo de la tarjeta */
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: #64748b;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tarjeta interactiva -->
+  <article class="card">
+    <div class="card-image-container">
+      <img src="https://picsum.photos/600/400" alt="Paisaje natural de ejemplo">
+    </div>
+    <div class="card-content">
+      <h2 class="card-title">Exploración de Montaña</h2>
+      <p class="card-description">Descubre rutas panorámicas y paisajes naturales. Una experiencia interactiva adaptada a todos los dispositivos.</p>
+    </div>
+  </article>
+
+</body>
+</html>
+
 
 
 
